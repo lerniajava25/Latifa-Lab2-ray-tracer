@@ -7,8 +7,15 @@ public class Scene {
 
     List<Shape> shapes = new ArrayList<>();
 
+    //Konstruktor
     public Scene (){
-        shapes.add(new Sphere());
-        shapes.add(new Sphere());
+
+        shapes.add(new Sphere(
+                new Vector3D(0, 0, 5),
+                1
+        ));
+        shapes.add(new Triangle());
     }
+
+
 }
