@@ -1,5 +1,4 @@
-import org.example.math.Ray;
-import org.example.math.Vector3D;
+import org.example.math.Vector3;
 import org.example.shapes.Shape;
 import org.example.shapes.Sphere;
 import org.example.shapes.Triangle;
@@ -12,7 +11,7 @@ void main() {
     List<Shape> shapes = new ArrayList<>();
 
     shapes.add(new Sphere(
-            new Vector3D(0, 0, 5),
+            new Vector3(0, 0, 5),
             1
     ));
 
