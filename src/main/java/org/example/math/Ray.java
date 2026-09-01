@@ -1,4 +1,4 @@
-package org.example;
+package org.example.math;
 
 public class Ray {
     private Vector3D start;

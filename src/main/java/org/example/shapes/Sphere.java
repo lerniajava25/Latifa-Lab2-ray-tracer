@@ -1,6 +1,8 @@
-package org.example;
+package org.example.shapes;
+import org.example.math.Ray;
+import org.example.math.Vector3D;
 
-public class Sphere extends Shape {
+public class Sphere implements Shape {
     private Vector3D center;
     private double radius;
 
@@ -11,9 +13,10 @@ public class Sphere extends Shape {
 
 
     @Override
-    double hit(Ray ray) {
+    public double hit(Ray ray) {
         return 0;
     }
+
 
 
 }

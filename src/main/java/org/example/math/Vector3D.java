@@ -1,4 +1,4 @@
-package org.example;
+package org.example.math;
 
 public class Vector3D {
     private double x;
@@ -11,8 +11,6 @@ public class Vector3D {
         this.y = y;
         this.z = z;
     }
-
-
     public Vector3D add(Vector3D other) {
         return new Vector3D(
                 this.x + other.x,
@@ -20,7 +18,6 @@ public class Vector3D {
                 this.z + other.z
         );
     }
-
     public Vector3D subtract(Vector3D other) {
         return new Vector3D(
                 this.x - other.x,
