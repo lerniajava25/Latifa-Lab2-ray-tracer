@@ -12,11 +12,25 @@ public class Sphere implements Shape {
     }
 
 
-    @Override
-    public double hit(Ray ray) {
-        return 0;
-    }
+//Att testa med en ray som ska träffa.
+//Att testa med en ray som inte ska träffa.
 
+    //Att implementera träfflogiken i Sphere.hit()
 
+  @Override
+  public Hit hit(Ray ray) {
+      //Var ligger rayens startpunkt i förhållande till sfärens center
+      var oc = ray.origin().subtract(center);
+      // Beräknar om rayen skär sfären
+      // a = rayens riktning
+      var a = ray.direction().dot(ray.direction());
+      var b = 2.0 * oc.dot(ray.direction());
+      var c = oc.dot(oc) - radius * radius;
 
+      // Diskriminanten avgör om rayen träffar sfären
+      var discriminant = b * b - 4 * a * c;
+
+      return new Hit(discriminant >= 0);
+
+  }
 }

@@ -1,7 +1,7 @@
 package org.example.math;
+// Matematiska operationer för 3D-vektorer
 //Med record blir värdena är i praktiken oföränderliga (immutable) efter att objektet skapats
 public record Vector3(double x, double y, double z) {
-
 
     public Vector3 add(Vector3 other) {
         return new Vector3(
