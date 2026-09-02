@@ -8,6 +8,7 @@ import org.example.shapes.Triangle;
 void main() {
 
     var scene = new Scene();
+
 //================================Sphere=================================
     // Exempel på sphere
     var sphere = new Sphere(
@@ -40,12 +41,6 @@ void main() {
             new Vector3(0, 0, 1)    // direction
     );
 
-    //=============================Utskrivt_Sphere=================================
-    IO.println("Test 1: " + sphere.hit(ray1));
-    IO.println("Test 2: " + sphere.hit(ray2));
-    IO.println("Test 3: " + sphere.hit(ray3));
-    IO.println("Test 4: " + sphere.hit(ray4));
-
 //==============================Triangle=================================
     // Exempel på Triangel
     var triangle = new Triangle(
@@ -72,8 +67,17 @@ void main() {
             new Vector3(0, 0, 1)
     );
 
+    //=============================Utskrivt_Sphere=================================
+    IO.println("Test 1: " + sphere.hit(ray1));
+    IO.println("Test 2: " + sphere.hit(ray2));
+    IO.println("Test 3: " + sphere.hit(ray3));
+    IO.println("Test 4: " + sphere.hit(ray4));
+
 //=============================Utskrivt_Triangle=================================
     IO.println("Triangle test 1: " + triangle.hit(triangleRay1));
     IO.println("Triangle test 2: " + triangle.hit(triangleRay2));
     IO.println("Triangle test 3: " + triangle.hit(triangleRay3));
+
+    //=============================Scene test=================================
+    IO.println("Scene test: " + scene.hit(ray1));
 }
