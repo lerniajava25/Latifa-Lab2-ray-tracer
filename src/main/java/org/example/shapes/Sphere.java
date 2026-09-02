@@ -11,12 +11,6 @@ public class Sphere implements Shape {
         this.radius = radius;
     }
 
-
-//Att testa med en ray som ska träffa.
-//Att testa med en ray som inte ska träffa.
-
-    //Att implementera träfflogiken i Sphere.hit()
-
   @Override
   public Hit hit(Ray ray) {
       //Var ligger rayens startpunkt i förhållande till sfärens center
