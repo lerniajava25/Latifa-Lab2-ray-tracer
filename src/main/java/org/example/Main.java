@@ -31,7 +31,15 @@ void main() {
             new Vector3(1, 0, 0),  // origin
             new Vector3(0, 0, 1)   // direction
     );
+
+    // Fjärde test: Sfären ligger bakom rayen => false
+    var ray4 = new Ray(
+            new Vector3(0, 0, 10),  // origin
+            new Vector3(0, 0, 1)    // direction
+    );
+
     IO.println("Test 1: " + sphere.hit(ray1));
     IO.println("Test 2: " + sphere.hit(ray2));
     IO.println("Test 3: " + sphere.hit(ray3));
+    IO.println("Test 4: " + sphere.hit(ray4));
     }

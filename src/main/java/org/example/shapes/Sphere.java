@@ -29,8 +29,16 @@ public class Sphere implements Shape {
 
       // Diskriminanten avgör om rayen träffar sfären
       var discriminant = b * b - 4 * a * c;
-
-      return new Hit(discriminant >= 0);
+      // Ingen giltig ray riktning eller ingen skärning
+      if (a == 0.0 || discriminant < 0) {
+          return new Hit(false);
+      }
+      //Att räkna ut var på rayen skärningspunkterna ligger
+      var sqrtDiscriminant = Math.sqrt(discriminant);
+      var t0 = (-b - sqrtDiscriminant) / (2 * a);
+      var t1 = (-b + sqrtDiscriminant) / (2 * a);
+      //Kontroll av om träffen ligger bakom rayen
+      return new Hit(t0 >= 0 || t1 >= 0);
+  }
 
   }
-}

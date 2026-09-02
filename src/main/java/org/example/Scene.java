@@ -1,7 +1,5 @@
 package org.example;
-
 import org.example.shapes.Shape;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +12,6 @@ public class Scene {
     }
 
     public List<Shape> getShapes() {
-        return shapes;
+        return List.copyOf(shapes);
     }
 }
