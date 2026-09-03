@@ -1,14 +1,22 @@
 package org.example.shapes;
 import org.example.math.Ray;
 import org.example.math.Vector3;
+import org.example.Color;
 
 public class Sphere implements Shape {
     private Vector3 center;
     private double radius;
+    private final Color color;
 
-    public Sphere(Vector3 center, double radius) {
+    public Sphere(Vector3 center, double radius, Color color) {
         this.center = center;
         this.radius = radius;
+        this.color = color;
+    }
+
+    @Override
+    public Color color() {
+        return color;
     }
 
   @Override

@@ -14,14 +14,15 @@ public class Scene {
     public List<Shape> getShapes() {
         return List.copyOf(shapes);
     }
-    public boolean hit(Ray ray) {
+    public Color hit(Ray ray) {
         for (Shape shape : shapes) {
             var hit = shape.hit(ray);
+
             if (hit.hit()) {
-                return true;
+                return shape.color();
             }
         }
-        return false;
 
+        return null;
     }
 }

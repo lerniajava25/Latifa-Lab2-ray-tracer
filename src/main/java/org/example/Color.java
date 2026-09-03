@@ -1,8 +1,4 @@
 package org.example;
 
-public class Color {
-    private int red;
-    private int green;
-    private int blue;
-
+public record Color(int red, int green, int blue) {
 }
