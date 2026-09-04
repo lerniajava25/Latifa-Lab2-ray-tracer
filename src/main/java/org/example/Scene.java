@@ -15,14 +15,17 @@ public class Scene {
         return List.copyOf(shapes);
     }
     public Color hit(Ray ray) {
+
+        var closestT = Double.POSITIVE_INFINITY;
+        Color closestColor = null;
         for (Shape shape : shapes) {
             var hit = shape.hit(ray);
 
-            if (hit.hit()) {
-                return shape.color();
+            if (hit.hit() && hit.t() < closestT) {
+                closestT = hit.t();
+                closestColor = shape.color();
             }
         }
-
-        return null;
+        return closestColor;
     }
 }

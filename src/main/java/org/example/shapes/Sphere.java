@@ -33,14 +33,24 @@ public class Sphere implements Shape {
       var discriminant = b * b - 4 * a * c;
       // Ingen giltig ray riktning eller ingen skärning
       if (a == 0.0 || discriminant < 0) {
-          return new Hit(false);
+          return new Hit(false, Double.POSITIVE_INFINITY);
       }
       //Att räkna ut var på rayen skärningspunkterna ligger
       var sqrtDiscriminant = Math.sqrt(discriminant);
       var t0 = (-b - sqrtDiscriminant) / (2 * a);
       var t1 = (-b + sqrtDiscriminant) / (2 * a);
-      //Kontroll av om träffen ligger bakom rayen
-      return new Hit(t0 >= 0 || t1 >= 0);
+      // Väljer den närmaste giltiga träffen framför rayens startpunkt
+      var t = Math.min(t0, t1);
+
+      if (t < 0) {
+          t = Math.max(t0, t1);
+      }
+
+      if (t < 0) {
+          return new Hit(false, Double.POSITIVE_INFINITY);
+      }
+
+      return new Hit(true, t);
   }
 
   }

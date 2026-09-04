@@ -7,9 +7,8 @@ public interface Shape {
     Hit hit(Ray ray);
     Color color();
 
-    record Hit(boolean hit) {
+    // Hit innehåller även t, som anger avståndet längs rayen till träffen
+    record Hit(boolean hit, double t) {
     }
-
-
 
 }

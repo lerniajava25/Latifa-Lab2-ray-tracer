@@ -35,7 +35,7 @@ public class Triangle implements Shape {
         var epsilon = 0.0000001;
         // Om a är nära 0 är rayen parallell och träffar inte triangeln
         if (Math.abs(a) < epsilon) {
-            return new Hit(false);
+            return new Hit(false, Double.POSITIVE_INFINITY);
         }
         var f = 1.0 / a;
 
@@ -46,25 +46,22 @@ public class Triangle implements Shape {
         var u = f * s.dot(h);
 
         if (u < 0.0 || u > 1.0) {
-            return new Hit(false);
+            return new Hit(false, Double.POSITIVE_INFINITY);
         }
-
         // Att kontrollera den andra riktningen inne i triangeln med ett värde v
         var q = s.crossProduct(edge1);
 
         var v = f * ray.direction().dot(q);
 
         if (v < 0.0 || u + v > 1.0) {
-            return new Hit(false);
+            return new Hit(false, Double.POSITIVE_INFINITY);
         }
-
         // Beräknar hur långt framför rayens startpunkt träffen ligger
         var t = f * edge2.dot(q);
 
         if (t < epsilon) {
-            return new Hit(false);
+            return new Hit(false, Double.POSITIVE_INFINITY);
         }
-
-        return new Hit(true);
+        return new Hit(true, t);
     }
 }
